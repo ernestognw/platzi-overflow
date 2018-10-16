@@ -1,0 +1,21 @@
+<form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Correo Electrónico"
+      formControlName="email"
+      id="email"
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      type="password"
+      matInput
+      placeholder="Contraseña"
+      formControlName="password"
+      id="password"
+    >
+  </mat-form-field>
+  <button type=submit mat-raised-button color="accent">Iniciar Sesión</button>
+  <a mat-button color="primary" class="auth-change" [routerLink]="['/signup']">¿No tienes cuenta? Regístrate</a>
+</form>

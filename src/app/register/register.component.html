@@ -1,0 +1,19 @@
+<form [formGroup]="singupForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input matInput placeholder="Nombre" formControlName="firstName" id="firstName">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Apellido" formControlName="lastName" id="lastName">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Correo electrónico" formControlName="email" id="email">
+  </mat-form-field>
+  <mat-form-field>
+    <input type="password" matInput placeholder="Contraseña" formControlName="password" id="password">
+  </mat-form-field>
+  <mat-form-field>
+    <input type="password" matInput placeholder="Repita la contraseña" formControlName="password2" id="password2">
+  </mat-form-field>
+  <button type="submit"mat-raised-button color="accent" onclick="if (password.value !== password2.value){alert('Las contraseñas no coinciden'); }">Crear cuenta</button>
+  <a mat-button color="primary" class="auth-change" [routerLink]="['/signin']">¿Ya tienes cuenta? Inicia sesión</a>
+</form>

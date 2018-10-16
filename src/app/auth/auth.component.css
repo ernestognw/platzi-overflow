@@ -1,0 +1,11 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 40px auto;
+}
+
+.auth-change {
+  text-align: center;
+  margin-top: 10px;
+}

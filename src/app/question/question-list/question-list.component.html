@@ -1,0 +1,11 @@
+<mat-list role="list">
+  <mat-list-item [routerLink]="['questions', question.id]" *ngFor="let question of questions">
+    <mat-icon *ngIf="question.icon === 'none'" mat-list-icon class="material-icons help">help</mat-icon>
+    <mat-icon *ngIf="question.icon !== 'none'" mat-list-icon class="{{ question.icon }}"></mat-icon>
+    <h3 mat-line>{{question.title}}</h3>
+    <p mat-line>
+      <small>{{question.answers.length}} repuestas - {{question.createdAt | amLocale: 'es' | amTimeAgo}}</small>
+    </p>
+  </mat-list-item>
+</mat-list>
+<button [routerLink]="['questions/new']" mat-fab class="add-question" color="accent">+</button>

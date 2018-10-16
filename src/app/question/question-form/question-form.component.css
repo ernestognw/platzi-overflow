@@ -1,0 +1,14 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 40px auto;
+}
+
+i {
+  font-size: 38px;
+}
+
+small {
+  display: block;
+}
