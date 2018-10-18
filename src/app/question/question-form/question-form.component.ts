@@ -4,6 +4,7 @@ import { Question } from '../question-detail/question.model';
 import Icons from './icon';
 import { QuestionService } from '../question.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-question-form',
@@ -17,6 +18,7 @@ export class QuestionFormComponent implements OnInit {
   constructor(
     private questionService: QuestionService,
     private router: Router,
+    private authService: AuthService,
     ) { }
 
   getIconVersion(icon: any) {
@@ -44,12 +46,15 @@ export class QuestionFormComponent implements OnInit {
     this.questionService.addQuestion(q)
       .subscribe(
         ({ _id }) => this.router.navigate(['/questions', _id]),
-        error => console.log(error)
+        this.authService.handleError,
       );
     form.resetForm();
   }
 
   ngOnInit() {
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigateByUrl('/signin');
+    }
   }
 
 }

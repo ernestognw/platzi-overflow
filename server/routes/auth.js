@@ -1,23 +1,12 @@
 import express from 'express';
 import Debug from 'debug';
 import jwt from 'jsonwebtoken';
+import { secret } from '../config/index';
+import { users, findUserByEmail } from '../middleware';
+
+const debug = new Debug('platzi-overflow:auth-middleware');
 
 const app =  express.Router();
-const debug = new Debug('platzi-overflow:auth');
-
-const secret = 'miclavesecreta';
-
-const users = [
-  {
-    firstName: "Ernesto",
-    lastName: "García",
-    email: "ernestognw@gmail.com",
-    password: "Fran1Host1",
-    _id: 123,
-  }
-]
-
-const findUserByEmail = e => users.find(({ email }) => email === e)
 
 function comparePasswords(providedPassword, userPassword){
   return providedPassword === userPassword;
