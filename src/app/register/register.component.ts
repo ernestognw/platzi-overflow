@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from '../auth/user.model';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,8 @@ import { User } from '../auth/user.model';
 
 export class RegisterComponent implements OnInit {
   singupForm: FormGroup;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.singupForm = new FormGroup({
@@ -28,7 +31,11 @@ export class RegisterComponent implements OnInit {
     const { firstName, lastName, email, password, password2 } = this.singupForm.value;
     if (this.singupForm.valid && password === password2) {
       const user = new User(email, password, firstName, lastName);
-      console.log(user);
+      this.authService.signup(user)
+        .subscribe(
+          this.authService.login,
+          err => console.log(err),
+        );
     }
   }
 }

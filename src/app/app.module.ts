@@ -5,6 +5,7 @@ import { Routing } from './app.routing';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { AuthService } from './auth/auth.service';
 
 // Material Angular
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,7 +33,7 @@ import { QuestionFormComponent } from './question/question-form/question-form.co
     QuestionFormComponent
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     MomentModule,
@@ -41,7 +42,9 @@ import { QuestionFormComponent } from './question/question-form/question-form.co
     Routing,
     HttpModule,
   ],
-  providers: [],
+  providers: [
+    AuthService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

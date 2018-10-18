@@ -1,6 +1,22 @@
 <mat-toolbar color="primary">
   <span [routerLink]="['/']">Platzi Overflow</span>
   <span style="flex: 1 1 auto;"></span>
-  <mat-icon [routerLink]="['/signin']">account_circle</mat-icon>
+  <mat-icon *ngIf="!isLoggedIn()" [routerLink]="['/signin']">account_circle</mat-icon>
+
+  <div *ngIf="isLoggedIn()">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item disabled>
+        {{ fullName() }}
+      </button>
+      <button mat-menu-item (click)="logout()">
+        Cerrar sesión
+      </button>
+    </mat-menu>
+  </div>
+
+
 </mat-toolbar>
 <router-outlet></router-outlet>

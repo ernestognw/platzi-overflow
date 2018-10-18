@@ -33,6 +33,7 @@
     "debug": "^4.1.0",
     "express": "^4.16.4",
     "hammerjs": "^2.0.8",
+    "jsonwebtoken": "^8.3.0",
     "nodemon": "^1.18.4",
     "rxjs": "~6.2.0",
     "sweet-scroll": "^3.0.1",
