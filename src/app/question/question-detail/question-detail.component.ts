@@ -22,10 +22,12 @@ export class QuestionDetailComponent implements OnInit, OnDestroy {
     ) { }
 
   ngOnInit() {
+    this.loading = true;
     this.sub = this.route.params.subscribe(params => {
       this.questionService
         .getQuestion(params.id)
         .then((question: Question) => {
+          console.log(question);
           this.question = question;
           this.loading = false;
         });

@@ -2,14 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Question } from '../question-detail/question.model';
 import Icons from './icon';
+import { QuestionService } from '../question.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-question-form',
   templateUrl: './question-form.component.html',
-  styleUrls: ['./question-form.component.css']
+  styleUrls: ['./question-form.component.css'],
+  providers: [QuestionService]
 })
 export class QuestionFormComponent implements OnInit {
   icons: Object[] = Icons;
+
+  constructor(
+    private questionService: QuestionService,
+    private router: Router,
+    ) { }
 
   getIconVersion(icon: any) {
     let version;
@@ -33,9 +41,13 @@ export class QuestionFormComponent implements OnInit {
       form.value.icon,
     );
     console.log(q);
+    this.questionService.addQuestion(q)
+      .subscribe(
+        ({ _id }) => this.router.navigate(['/questions', _id]),
+        error => console.log(error)
+      );
+    form.resetForm();
   }
-
-  constructor() { }
 
   ngOnInit() {
   }
