@@ -6,7 +6,7 @@
     "start": "concurrently -r \"npm run start:server\" \"npm run start:client\"",
     "start:server": "NODE_ENV=development DEBUG=platzi-overflow* nodemon server/index.js --exec babel-node",
     "start:client": "ng serve",
-    "start-prod": "pwd && NODE_ENV=production node server.js",
+    "start-prod": "pwd && ls && NODE_ENV=production node server.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
