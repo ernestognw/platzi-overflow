@@ -1,0 +1,11 @@
+<mat-tab-group>
+  <mat-tab label="Más recientes">
+    <app-question-list sort='-createdAt'></app-question-list>
+  </mat-tab>
+  <mat-tab label="Hot">
+    <app-question-list sort='-answers'></app-question-list>
+  </mat-tab>
+</mat-tab-group>
+<button [routerLink]="['questions/new']" mat-fab class="add-question" color="accent">
+  <mat-icon class="add">add</mat-icon>
+</button>

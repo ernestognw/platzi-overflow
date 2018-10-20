@@ -12,10 +12,3 @@ mat-icon.help {
 mat-icon.add {
   font-size: 20px;
 }
-
-.add-question {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  font-size: 24px;
-}

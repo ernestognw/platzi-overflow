@@ -1,5 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
-import { QuestionListComponent } from './question/question-list/question-list.component';
+import { QuestionScreenComponent } from './question/question-screen/question-screen.component';
 import { AuthComponent } from './auth/auth.component';
 import { RegisterComponent } from './register/register.component';
 import { QuestionDetailComponent } from './question/question-detail/question-detail.component';
@@ -7,13 +7,13 @@ import { QuestionFormComponent } from './question/question-form/question-form.co
 
 
 const QUESTION_ROUTES: Routes = [
-  { path: '', component: QuestionListComponent },
+  { path: '', component: QuestionScreenComponent },
   { path: 'new', component: QuestionFormComponent },
   { path: ':id', component: QuestionDetailComponent }
 ];
 
 const APP_ROUTES: Routes = [
-  { path: '', component: QuestionListComponent, pathMatch: 'full' },
+  { path: '', component: QuestionScreenComponent, pathMatch: 'full' },
   { path: 'signin', component: AuthComponent },
   { path: 'signup', component: RegisterComponent },
   { path: 'questions', children: QUESTION_ROUTES },

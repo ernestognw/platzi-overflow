@@ -39,7 +39,7 @@ export class AuthService {
       }),
       catchError((error: Response) => {
         console.log(error);
-        return throwError(error);
+        return throwError(error.json());
       })
     );
   }
@@ -71,7 +71,6 @@ export class AuthService {
         return json;
       }),
       catchError((error: Response) => {
-        console.log(error);
         return throwError(error);
       })
     );

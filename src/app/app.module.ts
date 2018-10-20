@@ -21,6 +21,7 @@ import { AuthComponent } from './auth/auth.component';
 import { RegisterComponent } from './register/register.component';
 import { QuestionListComponent } from './question/question-list/question-list.component';
 import { QuestionFormComponent } from './question/question-form/question-form.component';
+import { QuestionScreenComponent } from './question/question-screen/question-screen.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { QuestionFormComponent } from './question/question-form/question-form.co
     AuthComponent,
     RegisterComponent,
     QuestionListComponent,
-    QuestionFormComponent
+    QuestionFormComponent,
+    QuestionScreenComponent
   ],
   imports: [
     BrowserModule,
