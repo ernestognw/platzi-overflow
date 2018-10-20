@@ -1,2 +1,2 @@
 require('babel-polyfill')
-require('./server')
+require('./dist/server')
