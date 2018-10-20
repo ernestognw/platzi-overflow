@@ -18,7 +18,7 @@ if(process.env.NODE_ENV === 'development'){
 }
 
 if(process.env.NODE_ENV === 'production') {
-  app.use('/', express.static(path.join(process.cwd(), 'dist/platzi-overflow')));
+  app.use('/', express.static(path.join(process.cwd(), 'dist')));
 }
 
 app.use('/api/questions', question)
